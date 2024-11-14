@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white;
+    overflow-x: hidden;
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Verbesserte Scroll-Performance */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Verhindert horizontales Scrollen auf mobilen Geräten */
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+/* Optimierte Bilddarstellung */
+img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+/* Smooth Scrolling nur auf Desktop */
+@media (min-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Deaktiviere Smooth Scrolling auf Mobilgeräten für bessere Performance */
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Gradient Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
